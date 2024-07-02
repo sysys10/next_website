@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import NavigationBar from "@/components/navbar/navigation-bar";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -15,8 +16,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="ko">
+      <head>
+        <title>정보시스템학과 학생회 정원</title>
+      </head>
+      <body>
+        <NavigationBar />
+        {children}
+      </body>
     </html>
   );
 }
