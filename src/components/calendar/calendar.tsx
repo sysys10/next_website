@@ -3,25 +3,9 @@ import React, { useState } from "react";
 import LeftCalendar from "./LeftCalender";
 import { motion } from "framer-motion";
 import convertMtoStr from "@/utils/monthtostr"
+import { Events } from "@/types/calendarProps";
 const Calendar = () => {
-  type Event = {
-    title: string;
-    startDate: number;
-    endDate: number;
-  };
-  
-  type MonthlyEvents = {
-    [day: number]: Event[];
-  };
-  
-  type YearlyEvents = {
-    [month: number]: MonthlyEvents;
-  };
-  
-  type Events = {
-    [year: number]: YearlyEvents;
-  };
-  
+
   const events: Events = {
     2022: {},
     2023: {},
@@ -31,46 +15,52 @@ const Calendar = () => {
       },
       6: {
         1: [
-          { title: "수강신청", startDate: 1, endDate: 10 },
-          { title: "이벤트 1", startDate: 1, endDate: 1 },
-        ],
-        2: [
-          { title: "수강신청", startDate: 1, endDate: 10 },
+          { title: "수강신청", startDate: 1, endDate: 3 },
           { title: "이벤트 1", startDate: 1, endDate: 2 },
         ],
-        3: [{ title: "수강신청", startDate: 1, endDate: 10 }],
+        2: [
+          { title: "수강신청", startDate: 1, endDate: 3 },
+          { title: "이벤트 1", startDate: 1, endDate: 2 },
+        ],
+        3: [{ title: "수강신청", startDate: 1, endDate: 3 }],
         5: [{ title: "웹사이트 회의", startDate: 5, endDate: 5 }],
+        7: [{ title: "제 3차 공학대회의 정보시스템학과 어쩌구 저쩌구", startDate: 7, endDate: 7 }],
+        8: [{ title: "제 3차 공학대회의 정보시스템학과 어쩌구 저쩌구", startDate: 8, endDate: 10 }],
+        9: [{ title: "제 3차 공학대회의 정보시스템학과 어쩌구 저쩌구", startDate: 8, endDate: 10 }],
+        10: [{ title: "제 3차 공학대회의 정보시스템학과 어쩌구 저쩌구", startDate: 8, endDate: 10 }],
+
       },
       7: {
         1: [{ title: "밥먹기", startDate: 1, endDate: 1 }],
       },
+      
     },
     2025: {},
     2026: {},
     2027: {},
   };
-  
+
   const [date, setDate] = useState(new Date());
   const [modalIsOpen, setIsOpen] = useState(false);
-  const yy:number = date.getFullYear();
-  const mm:number = date.getMonth();
-  const dd:number = date.getDate();
+  const yy: number = date.getFullYear();
+  const mm: number = date.getMonth();
+  const dd: number = date.getDate();
   const dayEvents = (events[yy] && events[yy][mm]?.[dd]) || [];
   const onPrevClick = () => {
-    const yy:number = date.getFullYear();
-    const mm:number = date.getMonth();
+    const yy: number = date.getFullYear();
+    const mm: number = date.getMonth();
     setDate(new Date(yy, mm - 1, 1));
   };
 
   const onNextClick = () => {
-    const yy:number = date.getFullYear();
-    const mm:number = date.getMonth();
+    const yy: number = date.getFullYear();
+    const mm: number = date.getMonth();
     setDate(new Date(yy, mm + 1, 1));
   };
 
-  const onDateClick = (nd:number) => {
-    const yy:number = date.getFullYear();
-    const mm:number = date.getMonth();
+  const onDateClick = (nd: number) => {
+    const yy: number = date.getFullYear();
+    const mm: number = date.getMonth();
     setDate(new Date(yy, mm, nd));
     setIsOpen(true);
   };

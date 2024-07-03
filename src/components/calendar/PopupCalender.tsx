@@ -16,14 +16,14 @@ const PopupCalendar = ({ yy, mm, dd, dayEvents }: PopupProps) => {
   const dateD = `${String(dd).padStart(2, "0")}`
   return (
     <div className="w-full h-full rounded-lg flex flex-col px-8 py-4">
-      <h2 className="text-2xl text-right">
+      <h2 className="text-2xl text-black text-right">
         {yy}. {dateM}. {dateD}
       </h2>
       {dayEvents.map((v, i) => {
         return (
           <div
             key={i}
-            className="w-full text-xl pt-2 font-semibold flex justify-between"
+            className="w-full text-xl pt-2 font-semibold flex- flex-col mb-4 text-black"
           >
             <p>{v.startDate} ~ {v.endDate}</p>
             <p>{v.title}</p>

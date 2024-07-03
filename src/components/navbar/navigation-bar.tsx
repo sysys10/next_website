@@ -38,7 +38,7 @@ const NavigationBar = () => {
                         >
                             <Link
                                 href="/notice"
-                                className="h-full flex items-center justify-center hover:drop-shadow-white-lg font-pretendard"
+                                className={`h-full flex items-center justify-center hover:drop-shadow-white-lg font-pretendard ${pathname==='/notice'&&"active"}`}
                             >
                                 Notice
                             </Link>
@@ -49,7 +49,7 @@ const NavigationBar = () => {
                         >
                             <Link
                                 href="/active"
-                                className="h-full flex items-center justify-center hover:drop-shadow-white-lg font-pretendard"
+                                className={`h-full flex items-center justify-center hover:drop-shadow-white-lg font-pretendard ${pathname==='/activity'&&"active"}`}
                             >
                                 Activity
                             </Link>
@@ -60,7 +60,7 @@ const NavigationBar = () => {
                         >
                             <Link
                                 href="/wiki"
-                                className="h-full flex items-center justify-center hover:drop-shadow-white-lg font-pretendard"
+                                className={`h-full flex items-center justify-center hover:drop-shadow-white-lg font-pretendard ${pathname==='/wiki'&&"active"}`}
                             >
                                 Wiki
                             </Link>
@@ -71,7 +71,7 @@ const NavigationBar = () => {
                         >
                             <Link
                                 href="/login"
-                                className="h-full flex items-center justify-center hover:drop-shadow-white-lg font-pretendard"
+                                className={`h-full flex items-center justify-center hover:drop-shadow-white-lg font-pretendard ${pathname==='/login'&&"active"}`}
                             >
                                 Login
                             </Link>

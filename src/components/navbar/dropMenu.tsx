@@ -5,7 +5,7 @@ type DropMenuProps = {
   nav_bg: string;
   navRef: any;
 }
-const DropMenu = ({ nav_bg, navRef }) => {
+const DropMenu = ({ nav_bg, navRef }:any) => {
   return (
     <div className={`nav_drop ${nav_bg}`} >
       <div className="max-w-[1280px] w-full h-full m-auto flex justify-end">

@@ -6,8 +6,8 @@ import React from "react";
 import { GrNext, GrPrevious } from "react-icons/gr";
 import Modal from "react-modal";
 import PopupCalendar from "./PopupCalender";
-
-const LeftCalendar= ({
+import BasicSelect from "../ui/select";
+const LeftCalendar = ({
   date,
   setDate,
   onPrevClick,
@@ -21,7 +21,7 @@ const LeftCalendar= ({
   mm,
   dd,
   dayEvents,
-}:LeftCalendarProps) => {
+}: LeftCalendarProps) => {
   const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
   const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
   const lastMonth = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
@@ -30,37 +30,43 @@ const LeftCalendar= ({
     const days = [];
     for (let i = 0; i < firstDay; i++) {
       days.push(
-        <td
+        <div
           key={i + lastMonth}
-          className="cursor-pointer mobile:h-32 h-20 pt-5"
+          className="w-[14.2857142857%] flex justify-center cursor-pointer mobile:h-32 h-20 pt-5"
         >
           <div className="h-full flex flex-col text-gray-400">
             {lastMonth - firstDay + 1 + i}
           </div>
-        </td>
+        </div>
       );
     }
     for (let d = 1; d <= daysInMonth; d++) {
       const dayEvents = events[yy]?.[mm]?.[d] || [];
+      const zIndex = daysInMonth - d;
       days.push(
-        <td
+        <div
           key={firstDay + d}
           onClick={() => {
             onDateClick(d);
           }}
-          className="cursor-pointer mobile:h-32 h-20 pt-5"
+          className={`cursor-pointer ${zIndex} mobile:h-32 h-20 pt-5 w-[14.2857142857%]`}
+          style={{ zIndex }}
         >
-          <div className="h-full flex flex-col">
+          <div className="h-full w-full flex flex-col items-center">
             {d}
-            <ul className="text-sm text-gray-400 line-clamp-3">
+            <div className="w-full h-full text-xs mobile:text-sm text-black font-pretendard mt-1 relative">
               {dayEvents.map((event, index) => (
-                <li key={index} className="text-xs lg:text-sm line-clamp-2">
-                  {event.title}
-                </li>
+                <div
+                  key={index}
+                  className={`w-full h-5 bg-white mt-1 px-4 ${event.endDate === event.startDate ? "rounded-lg truncate w-[calc(100%-1.2px)]" : event.endDate === d ? "rounded-r-lg w-[calc(100%-0.125rem)]" : event.startDate === d ? "rounded-l-lg text-nowrap" : ""}`}
+                  style={{ position: 'relative', zIndex }}
+                >
+                  {event.startDate === d && event.title}
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
-        </td>
+        </div>
       );
     }
     return days;
@@ -68,12 +74,12 @@ const LeftCalendar= ({
 
   const renderWeeks = () => {
     const days = generateDays();
-    const weeks:any = [];
+    const weeks: any = [];
     let week: JSX.Element[] = [];
     days.forEach((day, index) => {
       week.push(day);
       if (week.length === 7 || index === days.length - 1) {
-        weeks.push(<tr key={`week-${index}`}>{week}</tr>);
+        weeks.push(<div className="w-full flex" key={`week-${index}`}>{week}</div>);
         week = [];
       }
     });
@@ -83,7 +89,7 @@ const LeftCalendar= ({
   return (
     <div className="w-full relative mt-4 max-w-[1000px] m-auto">
       <div className="flex justify-between text-white font-pretendard items-end">
-        <span className="text-5xl">{convertMtoStr(date.getMonth())}</span>
+        <span className="text-5xl">{convertMtoStr(mm)}</span>
         <span className="text-3xl font-normal text-right">
           <div className="flex justify-between text-2xl -mb-1 text-gray-400">
             <button onClick={onPrevClick}>
@@ -93,23 +99,23 @@ const LeftCalendar= ({
               <GrNext />
             </button>
           </div>
-          {date.getFullYear()}
+          {yy}
         </span>
       </div>
-      <table className="mt-2 text-white w-full relative z-10">
-        <thead className="border-y border-y-white leading-10">
-          <tr>
-            <th>S</th>
-            <th>M</th>
-            <th>T</th>
-            <th>W</th>
-            <th>T</th>
-            <th>F</th>
-            <th>S</th>
-          </tr>
-        </thead>
-        <tbody>{renderWeeks()}</tbody>
-      </table>
+      <div className="mt-2 text-white w-full relative z-10">
+        <div className="border-y border-y-white leading-10">
+          <div className="w-full flex text-center">
+            <span className="flex-1">S</span>
+            <span className="flex-1">M</span>
+            <span className="flex-1">T</span>
+            <span className="flex-1">W</span>
+            <span className="flex-1">T</span>
+            <span className="flex-1">F</span>
+            <span className="flex-1">S</span>
+          </div>
+        </div>
+        <div className="w-full">{renderWeeks()}</div>
+      </div>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
