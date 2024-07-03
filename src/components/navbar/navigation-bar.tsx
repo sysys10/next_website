@@ -66,7 +66,7 @@ const NavigationBar = () => {
                         </li>
                     </ul>
                     <DropMenu nav_bg={nav_bg} navRef={navRef} />
-                    <div className="mobile_nav text-3xl mr-10 mt-3.5">
+                    <div className="mobile_nav text-3xl mr-9 mt-3.5">
                         <GiHamburgerMenu onClick={() => { setMenu(!menu) }} />
                     </div>
                     <Sidemenu menu={menu} setMenu={setMenu} pathname={pathname} />

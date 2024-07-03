@@ -30,7 +30,7 @@ const LeftCalendar = ({
     for (let i = 0; i < firstDay; i++) {
       days.push(
         <div
-          key={i + lastMonth}
+          key={i+120}
           className="w-[14.2857142857%] flex justify-center cursor-pointer mobile:h-32 h-20 pt-5"
         >
           <div className="h-full flex flex-col text-gray-400">
@@ -44,7 +44,7 @@ const LeftCalendar = ({
       const zIndex = daysInMonth - d;
       days.push(
         <div
-          key={firstDay + d}
+          key={firstDay + d +1014}
           onClick={() => {
             onDateClick(d);
           }}
@@ -70,15 +70,16 @@ const LeftCalendar = ({
     }
     const lastCalendar = 7 - (days.length % 7);
     //마지막달 몇개까지 보이게할지
-    for (let d = 0; d < lastCalendar; d++) {
+    for (let d = 1; d <= lastCalendar; d++) {
       let dayEvents;
-      if (mm < 11) {
+      //12월인가 아닌가 생각
+      if (mm !== 11) {
         dayEvents = events[yy]?.[mm + 1]?.[d] || [];
       } else dayEvents = events[yy]?.[mm + 1]?.[d] || [];
 
 
       days.push(
-        <div key={d + daysInMonth + 2}
+        <div key={d + daysInMonth + 2024}
           className={`cursor-pointer mobile:h-32 h-20 pt-5 w-[14.2857142857%]`}
         >
           <div className="h-full w-full flex flex-col items-center text-gray-400">
@@ -144,11 +145,13 @@ const LeftCalendar = ({
         </div>
         <div className="w-full">{renderWeeks()}</div>
       </div>
+      
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         overlayClassName="custom-overlay"
         className="custom-modal"
+        ariaHideApp={false} 
         style={{
           content: {
             top: "50%",
