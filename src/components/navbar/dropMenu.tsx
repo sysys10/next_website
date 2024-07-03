@@ -70,10 +70,10 @@ const DropMenu = ({ nav_bg, navRef }:any) => {
           className="h-full w-[160px] activityDrop pt-[15px]"
         >
           <ul className="flex h-[100px] w-[160px] flex-col items-center gap-2 border-r pl-10 border-r-gray-300 border-opacity-20">
-            <Link href={"/activiy/gallery"} className="w-[160px] flex flex-col justify-center text-sm font-light hover:cursor-pointer hover:drop-shadow-white-lg transition-all duration-200">
+            <Link href={"/activity/gallery"} className="w-[160px] flex flex-col justify-center text-sm font-light hover:cursor-pointer hover:drop-shadow-white-lg transition-all duration-200">
               갤러리
             </Link>
-            <Link href={"/activiy/calendar"} className="w-[160px] flex flex-col justify-center text-sm font-light hover:cursor-pointer hover:drop-shadow-white-lg transition-all duration-200">
+            <Link href={"/activity/calendar"} className="w-[160px] flex flex-col justify-center text-sm font-light hover:cursor-pointer hover:drop-shadow-white-lg transition-all duration-200">
               캘린더
             </Link>
           </ul>

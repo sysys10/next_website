@@ -7,7 +7,8 @@ import { usePathname } from "next/navigation";
 import { GiHamburgerMenu } from "react-icons/gi";
 import DropMenu from "@/components/navbar/dropMenu";
 import Sidemenu from "./sidemenu";
-import "./navbar.css"
+import "./navbar.css";
+
 const NavigationBar = () => {
     const pathname = usePathname();
     const navRef = useRef<(null | HTMLDivElement)[]>([]);
@@ -25,44 +26,34 @@ const NavigationBar = () => {
                     <div></div>
                     <ul className="nav_items h-full">
                         <li
-                            className="w-[160px] h-full"
+                            className={`w-[160px] h-full flex items-center justify-center hover:drop-shadow-white-lg font-pretendard ${pathname.startsWith('/about') && " active"}`}
                             ref={(el) => navRef.current[0] = el}
                         >
-                            <p className={`h-full flex items-center justify-center hover:drop-shadow-white-lg font-pretendard ${pathname === '/about' && " active"}`}>
-                                About us
-                            </p>
+                            About us
                         </li>
                         <li
-                            className="w-[160px] h-full"
+                            className={`w-[160px] h-full flex items-center justify-center hover:drop-shadow-white-lg font-pretendard ${pathname.startsWith('/notice') && " active"}`}
                             ref={(el) => (navRef.current[1] = el)}
                         >
-                            <p className={`h-full flex items-center justify-center hover:drop-shadow-white-lg font-pretendard ${pathname === '/about' && " active"}`}>
-                                Notice
-                            </p>
+                            Notice
                         </li>
                         <li
-                            className="w-[160px] h-full"
+                            className={`w-[160px] h-full flex items-center justify-center hover:drop-shadow-white-lg font-pretendard ${pathname.startsWith('/activity') && " active"}`}
                             ref={(el) => (navRef.current[2] = el)}
                         >
-                            <p className={`h-full flex items-center justify-center hover:drop-shadow-white-lg font-pretendard ${pathname === '/about' && " active"}`}>
-                                Activity
-                            </p>
+                            Activity
                         </li>
                         <li
-                            className="wiki w-[160px] h-full"
+                            className={`wiki w-[160px] h-full flex items-center justify-center hover:drop-shadow-white-lg font-pretendard ${pathname.startsWith('/wiki') && " active"}`}
                             ref={(el) => (navRef.current[3] = el)}
                         >
-                             <p className={`h-full flex items-center justify-center hover:drop-shadow-white-lg font-pretendard ${pathname === '/about' && " active"}`}>
-                                Wiki
-                            </p>
+                            Wiki
                         </li>
                         <li
-                            className="login w-[160px] h-full"
+                            className={`login w-[160px] h-full flex items-center justify-center hover:drop-shadow-white-lg font-pretendard ${pathname.startsWith('/login') && " active"}`}
                             ref={(el) => (navRef.current[4] = el)}
                         >
-                             <p className={`h-full flex items-center justify-center hover:drop-shadow-white-lg font-pretendard ${pathname === '/about' && " active"}`}>
-                                Login
-                            </p>
+                            Login
                         </li>
                     </ul>
                     <DropMenu nav_bg={nav_bg} navRef={navRef} />
@@ -72,7 +63,7 @@ const NavigationBar = () => {
                     <Sidemenu menu={menu} setMenu={setMenu} pathname={pathname} />
                 </div>
             </nav>
-        </header >
+        </header>
     )
 }
 
