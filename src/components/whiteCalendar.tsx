@@ -29,7 +29,7 @@ const WhiteCalendar = ({
         const days = [];
         for (let i = 0; i < firstDay; i++) {
             const d = lastMonth - i + 1;
-            const dayEvents = events[yy]?.[mm-1]?.[d] || [];
+            const dayEvents = events[yy]?.[mm - 1]?.[d] || [];
             days.push(
                 <div key={`prevMonth-${i}`}
                     className={`cursor-pointer h-36 pt-2 w-[14.2857142857%]`}
@@ -75,7 +75,7 @@ const WhiteCalendar = ({
                                 if (eventDay + eventLength > 7) {
                                     return (
                                         <MotionEvent
-                                            key={`events-${index}`}
+                                            key={`events-${d}-${index}`}
                                             className="h-5 bg-[aliceblue] mt-1 px-4 overflow-visible rounded-l-lg truncate"
                                             style={{
                                                 width: '100%',
@@ -89,7 +89,7 @@ const WhiteCalendar = ({
                                 } else if (d === event.startDate) {
                                     return (
                                         <MotionEvent
-                                            key={`events-${index}`}
+                                            key={`events-${d}-${index}`}
                                             className="h-5 bg-orange-300 mt-1 px-4 overflow-visible rounded-lg flex items-center"
                                             style={{
                                                 width: `${(event.endDate - event.startDate + 1) * 100}%`,
@@ -104,7 +104,7 @@ const WhiteCalendar = ({
                                 else if (eventDay === 0) {
                                     return (
                                         <MotionEvent
-                                            key={`events-${index}`}
+                                            key={`events-${d}-${index}`}
                                             className="h-5 bg-[aliceblue] mt-1 px-4 overflow-visible rounded-lg truncate flex items-center"
                                             style={{
                                                 width: `${(event.endDate - d + 1) * 100}%`,
@@ -115,7 +115,10 @@ const WhiteCalendar = ({
                                             <p className="truncate"> {event.title}</p>
                                         </MotionEvent>
                                     );
-                                }
+                                } else return (
+                                    <div key={`events-${d}-${index}`}
+                                        className="h-5 mt-1"></div>
+                                )
                             })}
                         </div>
                     </div>
@@ -140,16 +143,16 @@ const WhiteCalendar = ({
                         <div className="w-full h-full text-xs mobile:text-sm font-pretendard mt-1 relative">
                             {dayEvents.map((event, index) => {
                                 return (
-                                <MotionEvent
-                                    key={`events-${index}`}
-                                    className="h-5 bg-[aliceblue] mt-1 px-4 overflow-visible flex items-center"
-                                    style={{
-                                        width: '100%',
-                                        position: 'relative',
-                                    }}
-                                >
-                                    <p className="truncate"> {event.startDate === d && event.title}</p>
-                                </MotionEvent>)
+                                    <MotionEvent
+                                        key={`events-${index}`}
+                                        className="h-5 bg-[aliceblue] mt-1 px-4 overflow-visible flex items-center"
+                                        style={{
+                                            width: '100%',
+                                            position: 'relative',
+                                        }}
+                                    >
+                                        <p className="truncate"> {event.startDate === d && event.title}</p>
+                                    </MotionEvent>)
                             })}
                         </div>
                     </div>
