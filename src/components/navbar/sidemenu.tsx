@@ -9,7 +9,7 @@ const Sidemenu = ({ menu, setMenu, pathname }) => {
     const [isopen, setIsopen] = useState([false, false, false, false, false]);
     return (
         <div>
-            <div className={`absolute h-screen left-0 top-0 right-60 bg-white ${menu ? "block" : "hidden"}`} onClick={() => { setMenu(!menu); setIsopen([false]) }}></div>
+            <div className={`absolute h-screen left-0 top-0 right-60 ${menu ? "block" : "hidden"}`} onClick={() => { setMenu(!menu); setIsopen([false]) }}></div>
             <div className={`absolute ${menu ? "max-w-60" : "max-w-0"} flex flex-col justify-between h-screen w-full right-0 top-0 transition-all duration-150`}>
                 <div className="w-60 h-full bg-black flex flex-col p-4 pt-10">
                     <Link href="/" className="w-52 m-auto">
