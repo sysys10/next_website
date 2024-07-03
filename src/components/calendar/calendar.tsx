@@ -28,7 +28,7 @@ const Calendar = () => {
         8: [{ title: "제 3차 공학대회의 정보시스템학과 어쩌구 저쩌구", startDate: 8, endDate: 10 }],
         9: [{ title: "제 3차 공학대회의 정보시스템학과 어쩌구 저쩌구", startDate: 8, endDate: 10 }],
         10: [{ title: "제 3차 공학대회의 정보시스템학과 어쩌구 저쩌구", startDate: 8, endDate: 10 }],
-
+        31: [{ title:'밥먹기',startDate:31,endDate:31}]
       },
       7: {
         1: [{ title: "밥먹기", startDate: 1, endDate: 1 }],

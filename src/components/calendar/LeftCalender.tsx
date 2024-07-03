@@ -25,7 +25,6 @@ const LeftCalendar = ({
   const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
   const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
   const lastMonth = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
-
   const generateDays = () => {
     const days = [];
     for (let i = 0; i < firstDay; i++) {
@@ -68,6 +67,35 @@ const LeftCalendar = ({
           </div>
         </div>
       );
+    }
+    const lastCalendar = 7 - (days.length % 7);
+    //마지막달 몇개까지 보이게할지
+    for (let d = 0; d < lastCalendar; d++) {
+      let dayEvents;
+      if (mm < 11) {
+        dayEvents = events[yy]?.[mm + 1]?.[d] || [];
+      } else dayEvents = events[yy]?.[mm + 1]?.[d] || [];
+
+
+      days.push(
+        <div key={d + daysInMonth + 1}
+          className={`cursor-pointer mobile:h-32 h-20 pt-5 w-[14.2857142857%]`}
+        >
+          <div className="h-full w-full flex flex-col items-center text-gray-400">
+            {d}
+            <div className="w-full h-full text-xs mobile:text-sm text-black font-pretendard mt-1 relative">
+              {dayEvents.map((event, index) => (
+                <div
+                  key={index}
+                  className={`w-full h-5 bg-gray-400 mt-1 px-4 ${event.endDate === event.startDate ? "rounded-lg truncate w-[calc(100%-1.2px)]" : event.endDate === d ? "rounded-r-lg w-[calc(100%-0.125rem)]" : event.startDate === d ? "rounded-l-lg text-nowrap" : ""}`}
+                >
+                  {event.startDate === d && event.title}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )
     }
     return days;
   };
