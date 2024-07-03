@@ -57,7 +57,6 @@ const Calendar = () => {
     const mm: number = date.getMonth();
     setDate(new Date(yy, mm + 1, 1));
   };
-
   const onDateClick = (nd: number) => {
     const yy: number = date.getFullYear();
     const mm: number = date.getMonth();

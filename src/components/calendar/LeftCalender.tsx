@@ -78,7 +78,7 @@ const LeftCalendar = ({
 
 
       days.push(
-        <div key={d + daysInMonth + 1}
+        <div key={d + daysInMonth + 2}
           className={`cursor-pointer mobile:h-32 h-20 pt-5 w-[14.2857142857%]`}
         >
           <div className="h-full w-full flex flex-col items-center text-gray-400">
@@ -157,8 +157,8 @@ const LeftCalendar = ({
             bottom: "auto",
             marginRight: "-50%",
             transform: "translate(-50%, -50%)",
-            width: 300,
-            height: 300,
+            width: 400,
+            height: 600,
             backgroundColor: "lightGray",
             zIndex: 20,
           },
