@@ -5,7 +5,7 @@ import Card from '@/components/card';
 import Modal from 'react-modal'
 import Image from 'next/image';
 import { TfiClose } from "react-icons/tfi";
-
+import Banner from '@/components/banner';
 interface GalleryItem {
   id: number;
   title: string;
@@ -36,7 +36,8 @@ const Gallery: React.FC = () => {
   }
   return (
     <div className="bg-white w-full min-h-[150vh]">
-      <div className="m-auto mt-40 h-fit py-10 w-full mobile:w-[1000px] flex flex-col justify-center">
+      <Banner/>
+      <div className="m-auto mt-20 h-fit py-10 w-full mobile:w-[1000px] flex flex-col justify-center">
         <h1 className="m-auto font-extrabold text-4xl font-pretendard my-20 ">정시템 갤러리</h1>
         <div className='w-full grid grid-cols-1 mobile:grid-cols-3 contents-center gap-5'>
           {galleryData.map((gallery, index) => {
@@ -66,25 +67,28 @@ const Gallery: React.FC = () => {
               top: "50%",
               left: "50%",
               maxWidth: "55.5rem",
-              maxHeight:"45.5rem",
+              maxHeight: "45.5rem",
               transform: "translate(-50%, -45%)",
-              width: "96%",
-              height: "100%",
-              backgroundColor: "white",
               borderRadius: 20,
-              overflow: "hidden",
-            
             },
-          }}
+          }
+          }
+          className={"mobile:h-full h-4/5 mobile:w-full w-[96%] bg-white overflow-hidden outline-none"}
         >
-          <div className='relative overflow-y-auto h-full mobile:p-6 p-1'>
-            <div className='border-b border-b-gray-400 h-24 font-pretendard'>
-             <div className='flex justify-between w-full items-center'> <h1 className='font-semibold text-3xl'>{gallerySelect.title}</h1> <TfiClose onClick={() => { setModalOpen(false) }} className='text-xl'/></div>
-              <p className='text-[#747474] mt-4 font-light text-base'>{gallerySelect.date}</p>
+          <div className='relative overflow-y-auto h-full px-8'>
+            <div className='fixed mx-8 pb-4 pt-8 bg-white  flex flex-col gap-3 left-0 right-0 top-0 border-b border-b-gray-400 h-fit font-pretendard'>
+             <div className='flex justify-between w-full items-center'> <h1 className='font-semibold text-xl mobile:text-3xl'>{gallerySelect.title}</h1> <TfiClose onClick={() => { setModalOpen(false) }} className='text-xl text-gray-500'/></div>
+              <p className='text-[#747474] mt-1 font-light text-base'>{gallerySelect.date}</p>
             </div>
-            <div className=''>
-              <p className='h-20 w-full mt-4'>{gallerySelect.desc}</p>
+            <div className='mt-36'>
+              <p className='min-h-20 h-fit w-full mt-4'>{gallerySelect.desc}</p>
+              <div className='flex flex-col gap-y-2'> {/*map으로 할거에용 */}
               <Image className='rounded-2xl' src={`${gallerySelect.imgurl}`} alt='image' width={1000} height={400} />
+              <Image className='rounded-2xl' src={`${gallerySelect.imgurl}`} alt='image' width={1000} height={400} />
+              <Image className='rounded-2xl' src={`${gallerySelect.imgurl}`} alt='image' width={1000} height={400} />
+              <Image className='rounded-2xl' src={`${gallerySelect.imgurl}`} alt='image' width={1000} height={400} />
+              <Image className='rounded-2xl' src={`${gallerySelect.imgurl}`} alt='image' width={1000} height={400} />
+</div>
             </div>
           </div>
         </Modal>
