@@ -4,8 +4,8 @@ import { LeftCalendarProps } from "@/types/LeftCalenderProps";
 import React from "react";
 import { GrNext, GrPrevious } from "react-icons/gr";
 import Modal from "react-modal";
-import { motion } from 'framer-motion';
 import MotionEvent from './motionEvent';
+
 
 const WhiteCalendar = ({
     date,

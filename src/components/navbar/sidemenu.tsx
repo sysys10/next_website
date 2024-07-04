@@ -98,9 +98,9 @@ const Sidemenu = ({ menu, setMenu, pathname }) => {
                             {isopen[2] && (
                                 <ul className="h-full w-full py-3">
                                     <motion.li initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0 }} className="text-lg h-10 flex items-center">
-                                        <Link href='/gallery'>갤러리</Link>
+                                        <Link href='/activity/gallery'>갤러리</Link>
                                     </motion.li>
-                                    <motion.li initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="text-lg h-10 flex items-center">캘린더</motion.li>
+                                    <motion.li initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="text-lg h-10 flex items-center"> <Link href='/activity/calendar'>캘린더</Link></motion.li>
                                 </ul>
                             )}
                         </div>

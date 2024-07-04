@@ -9,10 +9,6 @@ td {
   max-height: 80px;
   text-align: center;
 }
-td div{
-  margin-top: 0 auto;
-}/* LeftCalendar.module.css */
-/* LeftCalendar.module.css */
 .custom-overlay {
   position: fixed;
   top: 0;

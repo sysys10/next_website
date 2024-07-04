@@ -1,10 +1,28 @@
-import Image from "next/image"
-const Card = ({ gallery }) => {
-    return (<div className="w-72 h-72 bg-[#6B7280]">
-        <div className="bg-cover w-full" style={{ backgroundImage: `${gallery.imgurl}` }}></div>
-        <div className="h-20 w-full rounded-2xl bg-white flex flex-col p-4"><p>{gallery.title}</p><p>{gallery.date}</p></div>
+'use client'
+import MotionUp from "./motionup";
+import * as React from 'react';
 
-    </div>)
+interface GalleryItem {
+    id: number;
+    title: string;
+    date: string;
+    imgurl: string;
+}
+interface GalleryProps {
+    gallery: GalleryItem;
+}
+
+const Card: React.FC<GalleryProps> = ({ gallery }) => {
+
+    return (
+        <MotionUp className="m-auto bg-cover w-[18.5rem] h-[18.5rem] flex flex-col justify-between bg-[#D9D9D9] rounded-2xl" style={{ backgroundImage: `url(${gallery.imgurl})` }}>
+            <div></div>
+            <div className="h-20 w-full rounded-2xl bg-white flex flex-col p-4 font-pretendard">
+                <p className="font-bold">{gallery.title}</p>
+                <p className="text-xs text-[#6B7280]">{gallery.date}</p>
+            </div>
+        </MotionUp>
+    );
 }
 
 export default Card;
