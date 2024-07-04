@@ -53,13 +53,13 @@ const Sidemenu = ({ menu, setMenu, pathname }) => {
                         <div className={`px-3 h-full w-full ${isopen[0] ? "max-h-36" : "max-h-0"} bg-[rgb(17,17,17)] overflow-hidden transition-all duration-150`}>
                             {isopen[0] && (
                                 <ul className="h-full w-full py-3">
-                                    <motion.li initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0 }} className="text-lg h-10 flex items-center">
+                                    <motion.li initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }}  className="text-lg h-10 flex items-center">
                                         <Link href='/about'>소개</Link>
                                     </motion.li>
-                                    <motion.li initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="text-lg h-10 flex items-center">
+                                    <motion.li initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} className="text-lg h-10 flex items-center">
                                         <Link href='/about/organization'>조직도</Link>
                                     </motion.li>
-                                    <motion.li initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }} className="text-lg h-10 flex items-center">
+                                    <motion.li initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} className="text-lg h-10 flex items-center">
                                         <Link href='/about/contact'>Contact</Link>
                                     </motion.li>
                                 </ul>
@@ -77,11 +77,11 @@ const Sidemenu = ({ menu, setMenu, pathname }) => {
                         <div className={`px-3 h-full w-full ${isopen[1] ? "max-h-36" : "max-h-0"} bg-[rgb(17,17,17)] overflow-hidden transition-all duration-150`}>
                             {isopen[1] && (
                                 <ul className="h-full w-full py-3">
-                                    <motion.li initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0 }} className="text-lg h-10 flex items-center">
+                                    <motion.li initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} className="text-lg h-10 flex items-center">
                                         <Link href='/notice'>공지사항</Link>
                                     </motion.li>
-                                    <motion.li initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="text-lg h-10 flex items-center">투표</motion.li>
-                                    <motion.li initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }} className="text-lg h-10 flex items-center">결산안</motion.li>
+                                    <motion.li initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} className="text-lg h-10 flex items-center">투표</motion.li>
+                                    <motion.li initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }}  className="text-lg h-10 flex items-center">결산안</motion.li>
                                 </ul>
                             )}
                         </div>
@@ -97,10 +97,10 @@ const Sidemenu = ({ menu, setMenu, pathname }) => {
                         <div className={`px-3 h-full w-full ${isopen[2] ? "max-h-[6.5rem]" : "max-h-0"} bg-[rgb(17,17,17)] overflow-hidden transition-all duration-150`}>
                             {isopen[2] && (
                                 <ul className="h-full w-full py-3">
-                                    <motion.li initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0 }} className="text-lg h-10 flex items-center">
+                                    <motion.li initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} className="text-lg h-10 flex items-center">
                                         <Link href='/activity/gallery'>갤러리</Link>
                                     </motion.li>
-                                    <motion.li initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="text-lg h-10 flex items-center"> <Link href='/activity/calendar'>캘린더</Link></motion.li>
+                                    <motion.li initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} className="text-lg h-10 flex items-center"> <Link href='/activity/calendar'>캘린더</Link></motion.li>
                                 </ul>
                             )}
                         </div>
@@ -113,15 +113,15 @@ const Sidemenu = ({ menu, setMenu, pathname }) => {
                                 Wiki
                             </div>
                         </div>
-                        <div className={`px-3 h-full w-full ${isopen[3] ? "max-h-[11.5rem]" : "max-h-0"} bg-[rgb(17,17,17)] overflow-hidden transition-all duration-150`}>
+                        <div className={`px-3 h-full w-full${isopen[2] ? "border-b-blue-300 border-b-2": "max-h-0"} bg-[rgb(17,17,17)] overflow-hidden transition-all duration-150`}>
                             {isopen[3] && (
                                 <ul className="h-full w-full py-3">
-                                    <motion.li initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0 }} className="text-lg h-10 flex items-center">
+                                    <motion.li initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} className="text-lg h-10 flex items-center">
                                         <Link href='/about'>리얼 강의평</Link>
                                     </motion.li>
-                                    <motion.li initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="text-lg h-10 flex items-center">꿀교양</motion.li>
-                                    <motion.li initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }} className="text-lg h-10 flex items-center">맛집</motion.li>
-                                    <motion.li initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.6 }} className="text-lg h-10 flex items-center">새내기 TIPS</motion.li>
+                                    <motion.li initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} className="text-lg h-10 flex items-center">꿀교양</motion.li>
+                                    <motion.li initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }}  className="text-lg h-10 flex items-center">맛집</motion.li>
+                                    <motion.li initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} className="text-lg h-10 flex items-center">새내기 TIPS</motion.li>
                                 </ul>
                             )}
                         </div>

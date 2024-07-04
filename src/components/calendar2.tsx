@@ -79,7 +79,7 @@ const Calendar2 = () => {
             {/* <div className="my-4">
                 <h2 className="text-5xl text-right">Calendar</h2>
             </div> */}
-            <div className="flex justify-between">
+            <div className="flex justify-between w-full px-10">
                 <div className="text-6xl font-semibold">{convertMtoStr(mm)}</div>
                 <div className="flex flex-col text-4xl">
                     {yy}
